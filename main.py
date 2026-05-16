@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 import requests
-
+from .crud import insert_posts
+from .init_db import init_db
 app = FastAPI()
 
 REDDIT_URL = "https://www.reddit.com/r/Artificial/hot.json"
@@ -9,6 +10,12 @@ AI_TOOLS = [
     "ChatGPT", "GPT-4", "Midjourney", "Claude", "Gemini",
     "Perplexity", "Copilot", "Llama", "Mistral", "Grok"
 ]
+
+
+@app.on_event("startup")
+def startup():
+    init_db()
+
 
 @app.get("/")
 def root():
@@ -42,6 +49,8 @@ def get_trending_ai_tools():
             if tool.lower() in title.lower():
                 detected_tool = tool
                 break
+
+        insert_posts(results)
 
         results.append({
             "title": title,
