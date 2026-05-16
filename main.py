@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 import requests
-from .crud import insert_posts
-from .init_db import init_db
+from crud import insert_posts
+from init_db import init_db
 app = FastAPI()
 
 REDDIT_URL = "https://www.reddit.com/r/Artificial/hot.json"

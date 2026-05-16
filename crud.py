@@ -1,4 +1,4 @@
-from .db import get_connection
+from db import get_connection
 
 def insert_posts(posts):
     conn = get_connection()
