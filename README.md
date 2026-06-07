@@ -33,7 +33,7 @@ fast-api/
 
 - Python 3.8+
 - PostgreSQL database
-- Docker (optional)
+- Docker
 
 ### Installation
 
@@ -87,14 +87,3 @@ The application automatically initializes the required database table on startup
 - `score` - Upvote score
 - `tool` - Detected AI tool name
 - `created_at` - Timestamp
-
-## Contributing
-
-1. Create a new branch for your feature
-2. Make your changes
-3. Add tests in the `tests/` directory
-4. Submit a pull request
-
-## License
-
-MIT
